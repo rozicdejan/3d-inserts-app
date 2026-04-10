@@ -15,18 +15,18 @@ st.set_page_config(
 # ── Custom CSS ─────────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
 
   html, body, [class*="css"] {
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
   }
 
   /* Background */
   .stApp {
-    background: #0a0c10;
+    background: #f4f6f9;
     background-image:
-      radial-gradient(ellipse at 20% 0%, #1a2744 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 100%, #0f1f1a 0%, transparent 60%);
+      radial-gradient(ellipse at 0% 0%, #deeeff 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 100%, #d6f5ec 0%, transparent 55%);
   }
 
   /* Remove default padding */
@@ -34,49 +34,50 @@ st.markdown("""
 
   /* Hero section */
   .hero-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
     font-size: 3rem;
     letter-spacing: -1px;
-    background: linear-gradient(135deg, #e2f0ff 0%, #7ab8f5 40%, #38d9a9 100%);
+    background: linear-gradient(135deg, #1a5276 0%, #1a7a5e 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    line-height: 1.1;
+    line-height: 1.15;
     margin: 0;
   }
   .hero-sub {
     font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
-    color: #4a7c9e;
+    font-size: 0.75rem;
+    color: #2e86ab;
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
   }
   .hero-desc {
-    color: #8aa5bf;
+    color: #4a6274;
     font-size: 1rem;
     max-width: 600px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   /* Stat cards */
   .stat-card {
-    background: linear-gradient(135deg, #0f1923 0%, #111d2b 100%);
-    border: 1px solid #1e3048;
-    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #d0e4f0;
+    border-radius: 14px;
     padding: 1.2rem 1.4rem;
     text-align: center;
+    box-shadow: 0 2px 12px rgba(30,90,140,0.07);
   }
   .stat-value {
     font-family: 'Space Mono', monospace;
     font-size: 2rem;
     font-weight: 700;
-    color: #38d9a9;
+    color: #0e8a6a;
   }
   .stat-label {
     font-size: 0.72rem;
-    color: #4a7c9e;
+    color: #7a98aa;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-top: 0.2rem;
@@ -84,11 +85,11 @@ st.markdown("""
 
   /* Section headers */
   .section-header {
-    font-family: 'Syne', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 700;
-    font-size: 1.3rem;
-    color: #c8dff0;
-    border-left: 3px solid #38d9a9;
+    font-size: 1.15rem;
+    color: #1a3a4a;
+    border-left: 3px solid #0e8a6a;
     padding-left: 0.8rem;
     margin: 1.5rem 0 1rem 0;
   }
@@ -96,30 +97,31 @@ st.markdown("""
   /* Size badge */
   .size-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #1a3a5c, #0f2a40);
-    border: 1px solid #2a5278;
+    background: #eaf4ff;
+    border: 1px solid #b0d4ee;
     border-radius: 8px;
     padding: 0.5rem 1rem;
     font-family: 'Space Mono', monospace;
     font-size: 0.9rem;
-    color: #7ab8f5;
+    color: #2e6ea6;
     cursor: pointer;
     transition: all 0.2s;
     margin: 0.3rem;
   }
-  .size-badge:hover { border-color: #38d9a9; color: #38d9a9; }
+  .size-badge:hover { border-color: #0e8a6a; color: #0e8a6a; }
 
   /* Info card */
   .info-card {
-    background: #0d1b2a;
-    border: 1px solid #1e3a55;
+    background: #ffffff;
+    border: 1px solid #d0e4f0;
     border-radius: 12px;
     padding: 1.5rem;
     margin: 0.8rem 0;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
   }
   .info-card-highlight {
-    background: linear-gradient(135deg, #0a2418 0%, #0d1e28 100%);
-    border: 1px solid #1a4a35;
+    background: linear-gradient(135deg, #edfaf4 0%, #eaf4ff 100%);
+    border: 1px solid #b0e0cc;
     border-radius: 12px;
     padding: 1.5rem;
     margin: 0.8rem 0;
@@ -130,102 +132,105 @@ st.markdown("""
     font-family: 'Space Mono', monospace;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #38d9a9;
+    color: #0e8a6a;
   }
   .metric-unit {
     font-family: 'Space Mono', monospace;
     font-size: 1rem;
-    color: #4a9e80;
+    color: #2eab8a;
   }
   .metric-label {
     font-size: 0.75rem;
-    color: #4a7c9e;
+    color: #7a98aa;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
 
   /* Tip box */
   .tip-box {
-    background: #0a1f18;
-    border-left: 3px solid #38d9a9;
+    background: #edfaf4;
+    border-left: 3px solid #0e8a6a;
     border-radius: 0 8px 8px 0;
     padding: 0.8rem 1rem;
     margin: 0.5rem 0;
     font-size: 0.88rem;
-    color: #8abfab;
+    color: #1a5240;
   }
-  .tip-box strong { color: #38d9a9; }
+  .tip-box strong { color: #0a6e54; }
 
   .warn-box {
-    background: #1f1600;
-    border-left: 3px solid #e8a820;
+    background: #fff8e6;
+    border-left: 3px solid #d4960a;
     border-radius: 0 8px 8px 0;
     padding: 0.8rem 1rem;
     margin: 0.5rem 0;
     font-size: 0.88rem;
-    color: #c4933a;
+    color: #7a5010;
   }
-  .warn-box strong { color: #e8a820; }
+  .warn-box strong { color: #b87e0a; }
 
   /* Tab styling */
   .stTabs [data-baseweb="tab-list"] {
-    background: #0d1520;
+    background: #ffffff;
     border-radius: 10px;
     padding: 4px;
     gap: 4px;
-    border: 1px solid #1a2e44;
+    border: 1px solid #d0e4f0;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.05);
   }
   .stTabs [data-baseweb="tab"] {
     background: transparent;
-    color: #4a7c9e;
+    color: #7a98aa;
     border-radius: 8px;
     font-family: 'Space Mono', monospace;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
     padding: 0.5rem 1.2rem;
   }
   .stTabs [aria-selected="true"] {
-    background: #1a3a5c !important;
-    color: #7ab8f5 !important;
+    background: #e8f5f0 !important;
+    color: #0e8a6a !important;
   }
 
   /* Dataframe */
   .dataframe-container {
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid #1e3048;
+    border: 1px solid #d0e4f0;
   }
 
   /* Divider */
   .fancy-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, #1e3a55, #38d9a9, #1e3a55, transparent);
+    background: linear-gradient(90deg, transparent, #b0d4ee, #0e8a6a, #b0d4ee, transparent);
     margin: 2rem 0;
+    opacity: 0.5;
   }
 
   /* Selectbox */
   .stSelectbox > div > div {
-    background: #0d1b2a !important;
-    border-color: #1e3a55 !important;
-    color: #c8dff0 !important;
+    background: #ffffff !important;
+    border-color: #c0d8ea !important;
+    color: #1a3a4a !important;
     font-family: 'Space Mono', monospace !important;
   }
 
   /* Streamlit metric override */
   [data-testid="metric-container"] {
-    background: #0d1b2a;
-    border: 1px solid #1e3048;
+    background: #ffffff;
+    border: 1px solid #d0e4f0;
     border-radius: 10px;
     padding: 1rem 1.2rem;
+    box-shadow: 0 2px 8px rgba(30,90,140,0.06);
   }
   [data-testid="metric-container"] label {
-    color: #4a7c9e !important;
+    color: #7a98aa !important;
     font-family: 'Space Mono', monospace !important;
     font-size: 0.7rem !important;
     letter-spacing: 2px !important;
   }
   [data-testid="metric-container"] [data-testid="stMetricValue"] {
-    color: #38d9a9 !important;
+    color: #0e8a6a !important;
     font-family: 'Space Mono', monospace !important;
     font-size: 1.8rem !important;
   }
@@ -244,28 +249,25 @@ st.markdown("""
     font-size: 0.82rem;
   }
   table.custom-table th {
-    background: #0d1b2a;
-    color: #4a7c9e;
+    background: #f0f7ff;
+    color: #5a7a8a;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.7rem;
     padding: 0.8rem 1rem;
     text-align: left;
-    border-bottom: 1px solid #1e3a55;
+    border-bottom: 1px solid #d0e4f0;
   }
   table.custom-table td {
     padding: 0.7rem 1rem;
-    border-bottom: 1px solid #111d2b;
-    color: #c8dff0;
+    border-bottom: 1px solid #eaf0f6;
+    color: #1a3a4a;
   }
-  table.custom-table tr:hover td { background: #0d1f30; }
-  table.custom-table td.highlight { color: #38d9a9; font-weight: 700; }
-  table.custom-table td.size-col {
-    color: #7ab8f5;
-    font-weight: 700;
-  }
-  table.custom-table tr.active-row td { background: #0a2030 !important; }
-  table.custom-table tr.active-row td.size-col { color: #38d9a9; }
+  table.custom-table tr:hover td { background: #f4faff; }
+  table.custom-table td.highlight { color: #0e8a6a; font-weight: 700; }
+  table.custom-table td.size-col { color: #2e6ea6; font-weight: 700; }
+  table.custom-table tr.active-row td { background: #edfaf4 !important; }
+  table.custom-table tr.active-row td.size-col { color: #0e8a6a; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -395,40 +397,40 @@ with tab1:
 
         # Outer body
         fig.add_shape(type="rect", x0=-total_w, y0=0, x1=total_w, y1=total_h,
-                      fillcolor="#0d1b2a", line=dict(color="#1e3a55", width=1.5))
+                      fillcolor="#f0f7ff", line=dict(color="#c0d8ea", width=1.5))
         # Hole cavity
         fig.add_shape(type="rect", x0=-hole_d/2, y0=0, x1=hole_d/2, y1=hole_depth,
-                      fillcolor="#050c14", line=dict(color="#7ab8f5", width=1.5))
+                      fillcolor="#e8f0fa", line=dict(color="#2e86c1", width=1.5))
         # Insert body
         fig.add_shape(type="rect", x0=-d["insert_od"]/2, y0=0.2,
                       x1=d["insert_od"]/2, y1=ins_len+0.2,
-                      fillcolor="#1a4a35", line=dict(color="#38d9a9", width=2))
+                      fillcolor="#b8e8d0", line=dict(color="#0e8a6a", width=2))
         # Screw hole inside insert
         fig.add_shape(type="rect", x0=-d["screw_d"]/2, y0=0.2,
                       x1=d["screw_d"]/2, y1=ins_len+0.2,
-                      fillcolor="#050c14", line=dict(color="#2a8060", width=1))
+                      fillcolor="#e8f0fa", line=dict(color="#2a8060", width=1))
         # Knurling lines
         for y in np.linspace(0.8, ins_len - 0.5, 5):
             fig.add_shape(type="line", x0=-d["insert_od"]/2, y0=y,
                           x1=-d["insert_od"]/2 + 0.4, y1=y,
-                          line=dict(color="#38d9a9", width=1))
+                          line=dict(color="#0e8a6a", width=1))
             fig.add_shape(type="line", x0=d["insert_od"]/2, y0=y,
                           x1=d["insert_od"]/2 - 0.4, y1=y,
-                          line=dict(color="#38d9a9", width=1))
+                          line=dict(color="#0e8a6a", width=1))
 
         # Dimension arrows / annotations
         fig.add_annotation(x=0, y=-0.8, text=f"⌀ {hole_d} mm",
-                           font=dict(color="#7ab8f5", size=11, family="Space Mono"),
+                           font=dict(color="#2e86c1", size=11, family="Space Mono"),
                            showarrow=False)
         fig.add_annotation(x=total_w + 1.2, y=hole_depth/2,
                            text=f"{hole_depth} mm depth",
-                           font=dict(color="#4a7c9e", size=10, family="Space Mono"),
+                           font=dict(color="#5a8aaa", size=10, family="Space Mono"),
                            showarrow=False, textangle=-90)
 
         fig.update_layout(
             title=dict(text=f"{selected} Insert — Cross Section",
-                       font=dict(color="#c8dff0", size=14, family="Syne"), x=0.5),
-            paper_bgcolor="#080f18", plot_bgcolor="#080f18",
+                       font=dict(color="#1a3a4a", size=14, family="Syne"), x=0.5),
+            paper_bgcolor="#f8fbff", plot_bgcolor="#f8fbff",
             xaxis=dict(range=[-total_w-2, total_w+4], showgrid=False,
                        zeroline=False, showticklabels=False),
             yaxis=dict(range=[-2, total_h+1], showgrid=False,
@@ -473,7 +475,7 @@ with tab1:
     # Highlight selected row
     def highlight_row(row):
         if row["Size"] == selected:
-            return ["background-color: #0a2030; color: #38d9a9"] * len(row)
+            return ["background-color: #edfaf4; color: #0a6e54"] * len(row)
         return [""] * len(row)
 
     styled = df.style.apply(highlight_row, axis=1).format({
@@ -565,7 +567,7 @@ with tab2:
 
     def hl2(row):
         if row["Size"] == sel2:
-            return ["background-color: #0a2030; color: #38d9a9"] * len(row)
+            return ["background-color: #edfaf4; color: #0a6e54"] * len(row)
         return [""] * len(row)
 
     st.dataframe(df2.style.apply(hl2, axis=1), use_container_width=True, hide_index=True)
@@ -634,7 +636,7 @@ with tab3:
 
     def hl3(row):
         if row["Size"] == sel3:
-            return ["background-color: #0a2030; color: #38d9a9"] * len(row)
+            return ["background-color: #edfaf4; color: #0a6e54"] * len(row)
         return [""] * len(row)
 
     st.dataframe(df3.style.apply(hl3, axis=1), use_container_width=True, hide_index=True)
@@ -661,23 +663,23 @@ with tab4:
 
         fig2 = go.Figure()
         fig2.add_trace(go.Bar(name="Insert OD", x=sizes_list, y=insert_od_list,
-                              marker_color="#1a3a5c", marker_line_color="#2a5278",
+                              marker_color="#a8c8e8", marker_line_color="#6a9ac0",
                               marker_line_width=1))
         fig2.add_trace(go.Scatter(name="Hole Ø PLA", x=sizes_list, y=hole_pla,
-                                  mode="lines+markers", line=dict(color="#38d9a9", width=2.5),
+                                  mode="lines+markers", line=dict(color="#0e8a6a", width=2.5),
                                   marker=dict(size=8, symbol="circle")))
         fig2.add_trace(go.Scatter(name="Hole Ø PETG", x=sizes_list, y=hole_petg,
-                                  mode="lines+markers", line=dict(color="#7ab8f5", width=2, dash="dot"),
+                                  mode="lines+markers", line=dict(color="#2e86c1", width=2, dash="dot"),
                                   marker=dict(size=7)))
         fig2.add_trace(go.Scatter(name="Hole Ø ASA/PC", x=sizes_list, y=hole_asa,
-                                  mode="lines+markers", line=dict(color="#e8a820", width=2, dash="dash"),
+                                  mode="lines+markers", line=dict(color="#d4960a", width=2, dash="dash"),
                                   marker=dict(size=7)))
         fig2.update_layout(
-            paper_bgcolor="#080f18", plot_bgcolor="#0a1420",
-            font=dict(family="Space Mono, monospace", color="#8aa5bf", size=11),
-            legend=dict(bgcolor="#0d1b2a", bordercolor="#1e3a55", borderwidth=1),
-            xaxis=dict(gridcolor="#111d2b", title="Thread Size"),
-            yaxis=dict(gridcolor="#111d2b", title="Diameter (mm)"),
+            paper_bgcolor="#f8fbff", plot_bgcolor="#ffffff",
+            font=dict(family="Space Mono, monospace", color="#4a6274", size=11),
+            legend=dict(bgcolor="#ffffff", bordercolor="#d0e4f0", borderwidth=1),
+            xaxis=dict(gridcolor="#e0ecf4", title="Thread Size"),
+            yaxis=dict(gridcolor="#e0ecf4", title="Diameter (mm)"),
             height=350, margin=dict(l=10, r=10, t=20, b=10),
             barmode="overlay",
         )
@@ -688,23 +690,23 @@ with tab4:
 
         fig3 = go.Figure()
         fig3.add_trace(go.Scatter(name="Screw Ø", x=screw_d_list, y=screw_d_list,
-                                  mode="lines+markers", line=dict(color="#4a7c9e", width=1.5, dash="dot"),
+                                  mode="lines+markers", line=dict(color="#5a8aaa", width=1.5, dash="dot"),
                                   marker=dict(size=6)))
         fig3.add_trace(go.Scatter(name="Insert OD", x=screw_d_list, y=insert_od_list,
                                   mode="lines+markers", line=dict(color="#1e5a9e", width=2),
                                   marker=dict(size=8, symbol="diamond")))
         fig3.add_trace(go.Scatter(name="Hole Ø (PLA)", x=screw_d_list, y=hole_pla,
-                                  mode="lines+markers", line=dict(color="#38d9a9", width=2.5),
+                                  mode="lines+markers", line=dict(color="#0e8a6a", width=2.5),
                                   marker=dict(size=9, symbol="circle")))
         fig3.add_trace(go.Scatter(name="Clearance (Normal)", x=screw_d_list, y=cl_normal,
-                                  mode="lines+markers", line=dict(color="#e8a820", width=2, dash="dash"),
+                                  mode="lines+markers", line=dict(color="#d4960a", width=2, dash="dash"),
                                   marker=dict(size=7, symbol="square")))
         fig3.update_layout(
-            paper_bgcolor="#080f18", plot_bgcolor="#0a1420",
-            font=dict(family="Space Mono, monospace", color="#8aa5bf", size=11),
-            legend=dict(bgcolor="#0d1b2a", bordercolor="#1e3a55", borderwidth=1),
-            xaxis=dict(gridcolor="#111d2b", title="Screw Diameter (mm)"),
-            yaxis=dict(gridcolor="#111d2b", title="Diameter (mm)"),
+            paper_bgcolor="#f8fbff", plot_bgcolor="#ffffff",
+            font=dict(family="Space Mono, monospace", color="#4a6274", size=11),
+            legend=dict(bgcolor="#ffffff", bordercolor="#d0e4f0", borderwidth=1),
+            xaxis=dict(gridcolor="#e0ecf4", title="Screw Diameter (mm)"),
+            yaxis=dict(gridcolor="#e0ecf4", title="Diameter (mm)"),
             height=350, margin=dict(l=10, r=10, t=20, b=10),
         )
         st.plotly_chart(fig3, use_container_width=True)
@@ -714,23 +716,23 @@ with tab4:
 
     fig4 = go.Figure()
     fig4.add_trace(go.Bar(name="Screw Ø", x=sizes_list, y=screw_d_list,
-                          marker_color="#1e3a55"))
+                          marker_color="#4a7aaa"))
     fig4.add_trace(go.Bar(name="Heat-Set Hole (PLA)", x=sizes_list, y=hole_pla,
-                          marker_color="#1a4a35"))
+                          marker_color="#a0dcc0"))
     fig4.add_trace(go.Bar(name="Insert Outer Ø", x=sizes_list, y=insert_od_list,
-                          marker_color="#1a3a5c"))
+                          marker_color="#a8c8e8"))
     fig4.add_trace(go.Bar(name="Self-Tap Pilot (PLA)", x=sizes_list,
                           y=[self_tap_data[s]["pilot_pla"] for s in sizes_list],
-                          marker_color="#3a2a0a"))
+                          marker_color="#f5d8a0"))
     fig4.add_trace(go.Bar(name="Clearance (Normal)", x=sizes_list, y=cl_normal,
-                          marker_color="#2a1a0a"))
+                          marker_color="#f0c898"))
     fig4.update_layout(
-        paper_bgcolor="#080f18", plot_bgcolor="#0a1420",
-        font=dict(family="Space Mono, monospace", color="#8aa5bf", size=11),
-        legend=dict(bgcolor="#0d1b2a", bordercolor="#1e3a55", borderwidth=1,
+        paper_bgcolor="#f8fbff", plot_bgcolor="#ffffff",
+        font=dict(family="Space Mono, monospace", color="#4a6274", size=11),
+        legend=dict(bgcolor="#ffffff", bordercolor="#d0e4f0", borderwidth=1,
                     orientation="h", y=-0.18),
-        xaxis=dict(gridcolor="#111d2b"),
-        yaxis=dict(gridcolor="#111d2b", title="Diameter (mm)"),
+        xaxis=dict(gridcolor="#e0ecf4"),
+        yaxis=dict(gridcolor="#e0ecf4", title="Diameter (mm)"),
         barmode="group",
         height=380, margin=dict(l=10, r=10, t=20, b=60),
     )
@@ -818,39 +820,39 @@ with tab5:
         theta = np.linspace(0, 2*np.pi, 200)
         fig_boss.add_trace(go.Scatter(
             x=np.cos(theta) * boss_od/2, y=np.sin(theta) * boss_od/2,
-            fill="toself", fillcolor="#0d1b2a",
-            line=dict(color="#1e3a55", width=2), showlegend=False, hoverinfo="skip"
+            fill="toself", fillcolor="#f0f7ff",
+            line=dict(color="#c0d8ea", width=2), showlegend=False, hoverinfo="skip"
         ))
         # Insert OD
         fig_boss.add_trace(go.Scatter(
             x=np.cos(theta) * ins_od/2, y=np.sin(theta) * ins_od/2,
-            fill="toself", fillcolor="#1a3a2a",
-            line=dict(color="#38d9a9", width=2), showlegend=False, hoverinfo="skip",
+            fill="toself", fillcolor="#d6f5e8",
+            line=dict(color="#0e8a6a", width=2), showlegend=False, hoverinfo="skip",
             name="Insert OD"
         ))
         # Hole
         hole_r = bd['hole_d_tight'] / 2
         fig_boss.add_trace(go.Scatter(
             x=np.cos(theta) * hole_r, y=np.sin(theta) * hole_r,
-            fill="toself", fillcolor="#050c14",
-            line=dict(color="#7ab8f5", width=1.5), showlegend=False, hoverinfo="skip"
+            fill="toself", fillcolor="#e8f0fa",
+            line=dict(color="#2e86c1", width=1.5), showlegend=False, hoverinfo="skip"
         ))
         # Screw hole
         screw_r = bd['screw_d'] / 2
         fig_boss.add_trace(go.Scatter(
             x=np.cos(theta) * screw_r, y=np.sin(theta) * screw_r,
-            fill="toself", fillcolor="#020608",
-            line=dict(color="#2a5a40", width=1), showlegend=False, hoverinfo="skip"
+            fill="toself", fillcolor="#f0f4ff",
+            line=dict(color="#1a8a60", width=1), showlegend=False, hoverinfo="skip"
         ))
         # Dimension lines
         fig_boss.add_annotation(x=boss_od/2 + 0.8, y=0,
-            text=f"⌀{boss_od}", font=dict(color="#c8dff0", size=11, family="Space Mono"),
+            text=f"⌀{boss_od}", font=dict(color="#1a3a4a", size=11, family="Space Mono"),
             showarrow=False)
         fig_boss.add_annotation(x=ins_od/2 * 0.7, y=-ins_od/2 * 0.7,
-            text=f"⌀{ins_od}", font=dict(color="#38d9a9", size=10, family="Space Mono"),
+            text=f"⌀{ins_od}", font=dict(color="#0e8a6a", size=10, family="Space Mono"),
             showarrow=False)
         fig_boss.add_annotation(x=0, y=0,
-            text=f"⌀{bd['hole_d_tight']}", font=dict(color="#7ab8f5", size=9, family="Space Mono"),
+            text=f"⌀{bd['hole_d_tight']}", font=dict(color="#2e86c1", size=9, family="Space Mono"),
             showarrow=False)
         # Wall arrows
         r_mid = (ins_od/2 + boss_od/2) / 2
@@ -860,11 +862,11 @@ with tab5:
 
         lim = boss_od/2 + 2.5
         fig_boss.update_layout(
-            paper_bgcolor="#080f18", plot_bgcolor="#080f18",
+            paper_bgcolor="#f8fbff", plot_bgcolor="#f8fbff",
             xaxis=dict(range=[-lim, lim+2.5], showgrid=False, zeroline=False, showticklabels=False,
                        scaleanchor="y", scaleratio=1),
             yaxis=dict(range=[-lim, lim], showgrid=False, zeroline=False, showticklabels=False),
-            title=dict(text=f"{b_size} Boss — Top View", font=dict(color="#c8dff0", size=13, family="Syne"), x=0.5),
+            title=dict(text=f"{b_size} Boss — Top View", font=dict(color="#1a3a4a", size=13, family="Syne"), x=0.5),
             height=300, margin=dict(l=10, r=10, t=40, b=10),
         )
         st.plotly_chart(fig_boss, use_container_width=True)
@@ -897,7 +899,7 @@ with tab5:
 
     def hl_boss(row):
         if row["Size"] == b_size:
-            return ["background-color: #0a2030; color: #38d9a9"] * len(row)
+            return ["background-color: #edfaf4; color: #0a6e54"] * len(row)
         return [""] * len(row)
 
     st.dataframe(df_boss.style.apply(hl_boss, axis=1), use_container_width=True, hide_index=True)
@@ -954,53 +956,53 @@ with tab5:
 
         # Part body
         fig_flash.add_shape(type="rect", x0=-total_w, y0=0, x1=total_w, y1=ph,
-                            fillcolor="#0d1b2a", line=dict(color="#1e3a55", width=1.5))
+                            fillcolor="#f0f7ff", line=dict(color="#c0d8ea", width=1.5))
         # Side flash zone (left)
         fig_flash.add_shape(type="rect", x0=-total_w, y0=0, x1=-iod/2, y1=ph,
-                            fillcolor="rgba(56,217,169,0.06)", line=dict(color="#1a4a35", width=0))
+                            fillcolor="rgba(14,138,106,0.06)", line=dict(color="#b8e8d0", width=0))
         # Side flash zone (right)
         fig_flash.add_shape(type="rect", x0=iod/2, y0=0, x1=total_w, y1=ph,
-                            fillcolor="rgba(56,217,169,0.06)", line=dict(color="#1a4a35", width=0))
+                            fillcolor="rgba(14,138,106,0.06)", line=dict(color="#b8e8d0", width=0))
         # Hole cavity
         fig_flash.add_shape(type="rect", x0=-hd/2, y0=top_flash_rec, x1=hd/2, y1=ph,
-                            fillcolor="#050c14", line=dict(color="#7ab8f5", width=1.5))
+                            fillcolor="#e8f0fa", line=dict(color="#2e86c1", width=1.5))
         # Insert
         fig_flash.add_shape(type="rect", x0=-iod/2, y0=top_flash_rec,
                             x1=iod/2, y1=top_flash_rec + f_ins_len,
-                            fillcolor="#1a4a35", line=dict(color="#38d9a9", width=2))
+                            fillcolor="#b8e8d0", line=dict(color="#0e8a6a", width=2))
         # Screw thread inside
         fig_flash.add_shape(type="rect", x0=-fd["screw_d"]/2, y0=top_flash_rec,
                             x1=fd["screw_d"]/2, y1=top_flash_rec + f_ins_len,
-                            fillcolor="#030810", line=dict(color="#2a7050", width=1))
+                            fillcolor="#e8eeff", line=dict(color="#1a9070", width=1))
         # Top flash zone
         fig_flash.add_shape(type="rect", x0=-total_w, y0=0, x1=total_w, y1=top_flash_rec,
-                            fillcolor="rgba(122,184,245,0.08)", line=dict(color="#1a3a5c", width=0))
+                            fillcolor="rgba(46,134,193,0.08)", line=dict(color="#1a3a5c", width=0))
         # Bottom flash zone
         fig_flash.add_shape(type="rect", x0=-hd/2, y0=top_flash_rec,
                             x1=hd/2, y1=top_flash_rec + bot_flash_rec,
-                            fillcolor="rgba(232,168,32,0.1)", line=dict(color="#3a2a00", width=0))
+                            fillcolor="rgba(212,150,10,0.1)", line=dict(color="#3a2a00", width=0))
 
         # Annotations
         fig_flash.add_annotation(x=total_w+0.8, y=top_flash_rec/2,
-            text=f"top\n{top_flash_rec}mm", font=dict(color="#7ab8f5", size=9, family="Space Mono"),
+            text=f"top\n{top_flash_rec}mm", font=dict(color="#2e86c1", size=9, family="Space Mono"),
             showarrow=False)
         fig_flash.add_annotation(x=-total_w-0.8, y=(ph - top_flash_rec)/2 + top_flash_rec,
-            text=f"side\n{side_flash_rec}mm", font=dict(color="#38d9a9", size=9, family="Space Mono"),
+            text=f"side\n{side_flash_rec}mm", font=dict(color="#0e8a6a", size=9, family="Space Mono"),
             showarrow=False, textangle=90)
         fig_flash.add_annotation(x=iod/2 + 0.5, y=top_flash_rec + bot_flash_rec/2,
-            text=f"bot {bot_flash_rec}mm", font=dict(color="#e8a820", size=9, family="Space Mono"),
+            text=f"bot {bot_flash_rec}mm", font=dict(color="#d4960a", size=9, family="Space Mono"),
             showarrow=False)
         fig_flash.add_annotation(x=0, y=top_flash_rec + f_ins_len/2,
-            text=f"{f_size}\n{f_ins_len}mm", font=dict(color="#38d9a9", size=10, family="Space Mono"),
+            text=f"{f_size}\n{f_ins_len}mm", font=dict(color="#0e8a6a", size=10, family="Space Mono"),
             showarrow=False)
 
         lim_x = total_w + 3
         fig_flash.update_layout(
-            paper_bgcolor="#080f18", plot_bgcolor="#080f18",
+            paper_bgcolor="#f8fbff", plot_bgcolor="#f8fbff",
             xaxis=dict(range=[-lim_x, lim_x], showgrid=False, zeroline=False, showticklabels=False),
             yaxis=dict(range=[-1, ph + 1.5], showgrid=False, zeroline=False, showticklabels=False),
             title=dict(text=f"{f_size} Flash Zones — Side View",
-                       font=dict(color="#c8dff0", size=13, family="Syne"), x=0.5),
+                       font=dict(color="#1a3a4a", size=13, family="Syne"), x=0.5),
             height=340, margin=dict(l=10, r=10, t=40, b=10),
         )
         st.plotly_chart(fig_flash, use_container_width=True)
@@ -1034,7 +1036,7 @@ with tab5:
 
     def hl_flash(row):
         if row["Size"] == f_size:
-            return ["background-color: #0a2030; color: #38d9a9"] * len(row)
+            return ["background-color: #edfaf4; color: #0a6e54"] * len(row)
         return [""] * len(row)
 
     st.dataframe(df_flash.style.apply(hl_flash, axis=1), use_container_width=True, hide_index=True)
@@ -1106,12 +1108,12 @@ with tab5:
             textfont=dict(family="Space Mono", size=10, color="#8aa5bf"),
         ))
         fig_po.update_layout(
-            paper_bgcolor="#080f18", plot_bgcolor="#0a1420",
-            font=dict(family="Space Mono, monospace", color="#8aa5bf", size=11),
-            xaxis=dict(gridcolor="#111d2b"),
-            yaxis=dict(gridcolor="#111d2b", title="Pull-Out Force (N)"),
+            paper_bgcolor="#f8fbff", plot_bgcolor="#ffffff",
+            font=dict(family="Space Mono, monospace", color="#4a6274", size=11),
+            xaxis=dict(gridcolor="#e0ecf4"),
+            yaxis=dict(gridcolor="#e0ecf4", title="Pull-Out Force (N)"),
             title=dict(text=f"{po_size} Pull-Out Force by Material  |  length={po_len}mm",
-                       font=dict(color="#c8dff0", size=13, family="Syne"), x=0.5),
+                       font=dict(color="#1a3a4a", size=13, family="Syne"), x=0.5),
             height=310, margin=dict(l=10, r=10, t=50, b=10),
         )
         st.plotly_chart(fig_po, use_container_width=True)
@@ -1146,7 +1148,7 @@ with tab5:
 
     def hl_po(row):
         if row["Size"] == po_size:
-            return ["background-color: #0a2030; color: #38d9a9"] * len(row)
+            return ["background-color: #edfaf4; color: #0a6e54"] * len(row)
         return [""] * len(row)
 
     st.dataframe(df_po.style.apply(hl_po, axis=1), use_container_width=True, hide_index=True)
@@ -1161,7 +1163,7 @@ with tab5:
         colorscale=[
             [0.0,  "#0a1420"],
             [0.2,  "#0d2a1a"],
-            [0.5,  "#1a4a35"],
+            [0.5,  "#b8e8d0"],
             [0.8,  "#2a8060"],
             [1.0,  "#38d9a9"],
         ],
@@ -1171,10 +1173,10 @@ with tab5:
         hovertemplate="Size: %{y}<br>Material: %{x}<br>Force: %{z} N<extra></extra>",
     ))
     fig_heat.update_layout(
-        paper_bgcolor="#080f18", plot_bgcolor="#080f18",
-        font=dict(family="Space Mono, monospace", color="#8aa5bf", size=11),
+        paper_bgcolor="#f8fbff", plot_bgcolor="#f8fbff",
+        font=dict(family="Space Mono, monospace", color="#4a6274", size=11),
         title=dict(text="Pull-Out Force (N) — All Sizes × Materials",
-                   font=dict(color="#c8dff0", size=13, family="Syne"), x=0.5),
+                   font=dict(color="#1a3a4a", size=13, family="Syne"), x=0.5),
         height=350, margin=dict(l=10, r=10, t=50, b=10),
         xaxis=dict(title="Material"),
         yaxis=dict(title="Insert Size"),
